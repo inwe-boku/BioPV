@@ -4,7 +4,7 @@
 
 #### Wind
 
-<2-10>m/sfootnote:fard2022[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
+<2,4,6,10>m/sfootnote:fard2022[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
 
 #### Temperature
 
@@ -12,7 +12,7 @@
 
 #### GHI
 
-<3-4.5kWh/m2/d>footnote:fard2022[]
+<3,2.5,4,4.5>kWh/m2/dfootnote:fard2022[]
 
 #### Aspect
 
@@ -26,7 +26,7 @@
 
 #### Distance from main
 
-<500,2500,4500,6500> roadsfootnote:fard2022[]
+<500,2500,4500,6500>roadsfootnote:fard2022[]
 
 #### Distance from power linesfootnote:fard2022[]
 
