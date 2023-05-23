@@ -48,6 +48,8 @@
 
 #### Distance from protected areas
 
+<1,1.5,2,2.5>kmfootnote:fard2022[]
+
 #### Distance from surface water
 
 ## Social
