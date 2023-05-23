@@ -4,6 +4,8 @@
 
 #### Wind
 
+Literaturefootnote:[Fard2022] 
+
 #### Temperature
 
 #### GHI
