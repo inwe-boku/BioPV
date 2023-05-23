@@ -58,6 +58,12 @@
 
 #### Distance from urban areas
 
+<500,2000,3500,5000>mfootnote:fard2022[]
+
 #### Distance from rural areas
 
+<300,1000,2000,3000>mfootnote:fard2022[]
+
 #### Distance from historical areas
+
+<1000,2000,3000,4000>mfootnote:fard2022[]
