@@ -4,9 +4,9 @@
 
 #### Windfootnote:[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
 
-#### Temperature
+#### Temperaturefootnote:[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
 
-#### GHI
+#### GHIfootnote:[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
 
 #### Aspect
 
