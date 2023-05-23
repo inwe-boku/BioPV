@@ -14,13 +14,19 @@
 
 <3-4.5kWh/m2/d>footnote:fard2022[]
 
-#### Aspectfootnote:fard2022[]
+#### Aspect
 
-#### DEMfootnote:fard2022[]
+<N-S>footnote:fard2022[]
+
+#### DEM
+
+<300-2000>footnote:fard2022[]
 
 ## Economical
 
-#### Distance from main roadsfootnote:fard2022[]
+#### Distance from main
+
+[500,2500,4500,6500]roadsfootnote:fard2022[]
 
 #### Distance from power linesfootnote:fard2022[]
 
