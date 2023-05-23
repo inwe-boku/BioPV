@@ -44,7 +44,7 @@
 
 #### Landuse
 
-
+<Dense forest|Urban|Shore|Water - Agriculture|Forest - Garden|Bushes| - Mod range - Poor range>footnote:fard2022[]
 
 #### Distance from protected areas
 
