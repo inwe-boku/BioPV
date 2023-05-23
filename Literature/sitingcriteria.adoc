@@ -2,21 +2,23 @@
 
 ## Technical
 
-#### Windfootnote:fard2022[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
+#### Wind
+
+2-10m/sfootnote:fard2022[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
 
 #### Temperaturefootnote:fard2022[] 
 
 #### GHIfootnote:fard2022[] 
 
-#### Aspect
+#### Aspectfootnote:fard2022[]
 
-#### DEM
+#### DEMfootnote:fard2022[]
 
 ## Economical
 
-#### Distance from main roads
+#### Distance from main roadsfootnote:fard2022[]
 
-#### Distance from power lines
+#### Distance from power linesfootnote:fard2022[]
 
 #### Distance from faults
 
