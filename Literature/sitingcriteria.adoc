@@ -20,21 +20,21 @@
 
 #### DEM
 
-<300,600,1000,2000>footnote:fard2022[]
+<300,600,1000,2000>maslfootnote:fard2022[]
 
 ## Economical
 
-#### Distance from main
+#### Distance from main roads
 
-<500,2500,4500,6500>roadsfootnote:fard2022[]
+<500,2500,4500,6500>mfootnote:fard2022[]
 
 #### Distance from power lines
 
-<1.2,4,8,12,16>kmfootnote:fard2022[]
+<1200,4000,8000,12000,16000>mfootnote:fard2022[]
 
 #### Distance from faults
 
-<0.5,1,1.5,2>kmfootnote:fard2022[]
+<500,1000,1500,2000>mfootnote:fard2022[]
 
 #### Slope
 
@@ -48,9 +48,11 @@
 
 #### Distance from protected areas
 
-<1,1.5,2,2.5>kmfootnote:fard2022[]
+<1000,1500,2000,2500>mfootnote:fard2022[]
 
 #### Distance from surface water
+
+<200,800,1200,1600>mfootnote:fard2022[]
 
 ## Social
 
