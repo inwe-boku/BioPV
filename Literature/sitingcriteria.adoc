@@ -1,0 +1,39 @@
+# Siting Criteria for ground mounted PV
+
+## Technical
+
+#### Wind
+
+#### Temperature
+
+#### GHI
+
+#### Aspect
+
+#### DEM
+
+## Economical
+
+#### Distance from main roads
+
+#### Distance from power lines
+
+#### Distance from faults
+
+#### Slope
+
+## Environmental
+
+#### Landuse
+
+#### Distance from protected areas
+
+#### Distance from surface water
+
+## Social
+
+#### Distance from urban areas
+
+#### Distance from rural areas
+
+#### Distance from historical areas
