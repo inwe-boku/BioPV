@@ -2,11 +2,11 @@
 
 ## Technical
 
-#### Windfootnote:[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
+#### Windfootnote:fard2022[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
 
-#### Temperaturefootnote:[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
+#### Temperaturefootnote:fard2022[] 
 
-#### GHIfootnote:[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923] 
+#### GHIfootnote:fard2022[] 
 
 #### Aspect
 
