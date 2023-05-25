@@ -15,4 +15,7 @@
 *** railings
 *** chimney
 
+GRASS r.slope.aspect gives slope and orientation
+- autosplit buildings at roof ridges?
+
 # Ground-Mounted
