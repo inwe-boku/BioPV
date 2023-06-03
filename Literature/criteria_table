@@ -1,10 +1,16 @@
 # Siting Criteria for ground mounted PV
+.Multiline cells, row/col span
+|====
+|Date |Duration |Avg HR |Notes
 
-[format="csv"]
-[options="header",cols=",,s,,m"]
-|===========================
-ID,FName,LName,Address,Phone
-1,Vasya,Pupkin,London,+123
-2,X,Y,"A,B",45678
-|===========================
+|22-Aug-08 .2+^.^|10:24 | 157 |
+Worked out MSHR (max sustainable
+heart rate) by going hard
+for this interval.
 
+|22-Aug-08 | 152 |
+Back-to-back with previous interval.
+
+|24-Aug-08 3+^|none
+
+|====
