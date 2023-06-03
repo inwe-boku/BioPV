@@ -1,9 +1,26 @@
 # Siting Criteria for ground mounted PV
 
-.CSV data
-[format="csv",cols="4"]
-|======
-1,2,3,4
-a,b,c,d
-A,B,C,D
-|======
+.Source of Side Criteria
+[format="csv",cols=2"]
+|============================================================================================================
+Source,footnote:fard2022 
+Technical,
+Wind [m/s],"2,4,6,10"  
+Temperature,"7,11,15,19"  
+GHI [kWh/m2],"3,2.5,4,4.5" 
+Aspect,"N-S"    
+DEM [masl],"300,600,1000,2000"
+Economical,
+Distance from main roads [m],"500,2500,4500,6500"
+Distance from power lines [m],"1200,4000,8000,12000,16000"
+Distance from faults [m],"500,1000,1500,2000" 
+Slope,"2,5,10,20"
+Environmental,
+Landuse,"Dense forest,Urban,Shorew,Water - Agriculture,Forest - Garden,Bushes - Mod range - Poor range"
+Distance from protected areas [m],"1000,1500,2000,2500"
+Distance from surface water [m],"200,800,1200,1600"
+Social,
+Distance from urban areas [m],"500,2000,3500,5000" 
+Distance from rural areas [m],"300,1000,2000,3000"
+Distance from historical areas [m],"1000,2000,3000,4000"
+|============================================================================================================
