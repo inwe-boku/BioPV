@@ -1,16 +1,5 @@
 # Siting Criteria for ground mounted PV
 
-.An example table
-[options="header,footer"]
-|===============================
-|Col 1|Col 2      |Col 3  |Col 4
-4+^|Technical
-|1    |Item 1     |a      |1
-|2    |Item 2     |b      |2
-|3    |Item 3     |c      |3
-|6    |Three items|d      |4
-|===============================
-
 ## Technical
 
 #### Wind
