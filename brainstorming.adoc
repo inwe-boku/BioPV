@@ -1,6 +1,6 @@
 # Buildings
 
-* use the buildings dataset for Austria from: https://data.bev.gv.at/geonetwork/srv/ger/catalog.search#/metadata/0e36cab1-698a-42a7-b72d-9631d2d7ad28
+* use the buildings dataset for Austria from: https://doi.org/10.48677/0e36cab1-698a-42a7-b72d-9631d2d7ad28
 * use DHM/DOM raster to get roof information for each buildings:
 ** slope / angle (r.neighbours)
 ** orientation
