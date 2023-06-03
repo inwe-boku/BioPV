@@ -1,0 +1,12 @@
+# Siting Criteria for ground mounted PV
+
+[format="csv"]
+[options="header",cols=",,s,,m"]
+|===========================
+ID,FName,LName,Address,Phone
+1,Vasya,Pupkin,London,+123
+2,X,Y,"A,B",45678
+|===========================
+
+footnote:fard2022[Fard et.al. 2022, https://doi.org/10.1016/j.rser.2022.112923]
+
