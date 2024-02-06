@@ -1,0 +1,69 @@
+## PV Radiation
+
+### Global irradiation
+
+### Temperature
+
+### Sunshine hours
+
+### Meteorological parameters
+
+### Humidity
+
+### PV technology
+
+
+## Land And Topos
+
+### Topography
+
+### Elevation
+
+### Land use
+
+### Slope
+
+### Aspect
+
+### Minimum available area
+
+### Compactness
+
+
+## Economy
+
+### Land Value
+
+### Subsidies
+
+### Constuction Costs
+
+### Operation Costs
+
+### Revenue
+
+### Agricultural Impact
+
+
+## Infrastructure
+
+### Distance to network
+
+### Distance to Transformer / Substation
+
+### Distance to roads
+
+### Distance to residential areas
+
+### Grid capacity
+
+### Zoning plan
+
+
+## Hazards
+
+### Distance to surface water
+
+### Flooding zones
+
+### Avalanche and landslide
