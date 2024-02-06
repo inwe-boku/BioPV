@@ -28,7 +28,12 @@ Current Standard
 
 ### Topography
 
+**Austria DEM**
+
 ### Elevation
+
+__no limit considered__
+__**above treeline** not considered__
 
 ### Land use
 
