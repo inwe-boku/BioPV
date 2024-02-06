@@ -28,7 +28,7 @@ Current Standard
 
 ### Topography
 
-**Austria DEM**
+**Austria DEM 10m**
 
 ### Elevation
 
@@ -38,49 +38,89 @@ __**above treeline** not considered__
 
 ### Land use
 
+**Austria LULC 5m**
+
 ### Slope
+
+__derived__ from DEM
 
 ### Aspect
 
+__derived__ from DEM
+
 ### Minimum available area
+
+__derived__ from LULC
 
 ### Compactness
 
+__derived__ from LULC
 
 ## Economy
 
 ### Land Value
 
+**TODO**
+
 ### Subsidies
+
+**TODO**
 
 ### Constuction Costs
 
+**TODO**
+
 ### Operation Costs
+
+**TODO**
 
 ### Revenue
 
+**TODO**
+
 ### Agricultural Impact
 
+__derived__ from **EPIC** values
 
 ## Infrastructure
 
 ### Distance to network
 
+__not considered__
+
 ### Distance to Transformer / Substation
+
+__calculated__ cable costs (euclidian)
 
 ### Distance to roads
 
+__calculated__ Euclidian distance from **OSM**
+
 ### Distance to residential areas
+
+__calculated__ distance from **OSM** buildings
 
 ### Grid capacity
 
+__not considered__
+
 ### Zoning plan
+
+__considered__ by availability
+
+**TODO**
 
 
 ## Hazards
 
 ### Distance to surface water
 
+**TODO**
+
 ### Flooding zones
 
+__considered__ HQ data
+
 ### Avalanche and landslide
+
+**TODO**
