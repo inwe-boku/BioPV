@@ -2,16 +2,27 @@
 
 ### Global irradiation
 
+__Automatic__ from RCP4.5
+
 ### Temperature
+
+__Automatic__ from RCP4.5
 
 ### Sunshine hours
 
+__Automatic__ from RCP4.5
+
 ### Meteorological parameters
+
+__Automatic__ from RCP4.5
 
 ### Humidity
 
+__Automatic__ from RCP4.5
+
 ### PV technology
 
+Current Standard
 
 ## Land And Topos
 
