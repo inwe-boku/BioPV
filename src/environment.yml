@@ -1,0 +1,12 @@
+name: biopv
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - rasterio
+  - pandas
+  - geopandas
+  - numpy
+  - pvlib
+  - pip:
+    - suntimes
