@@ -1,0 +1,9 @@
+### Distance Calculation
+
+Invekos <-> nearest Hub
+
+- 3 nearest hubs  
+- distance calculation with share of height classes
+  - < 30% / 17° ( < 1000 müA) : 1
+  - > 30% / 17° ( > 1000 müA) : 2
+  - > 60% / 31° ( > 1500 müA) : 3
