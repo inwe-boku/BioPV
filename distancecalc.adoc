@@ -1,9 +1,9 @@
-cost grid connection workflow
+#cost grid connection workflow
 
-###incoming datasources
--transformer staions
--invekos field data
--digital elevation model 10m raster
+##incoming datasources
+- transformer staions
+- invekos field data
+- digital elevation model 10m raster
 
 ###preperation Datasets
 ##Tranformator stations
