@@ -1,9 +1,48 @@
-### Distance Calculation
+#cost grid connection workflow
 
-Invekos <-> nearest Hub
+##incoming datasources
+- transformer staions
+- invekos field data
+- digital elevation model 10m raster
 
-- 3 nearest hubs  
-- distance calculation with share of height classes
-  - < 30% / 17° ( < 1000 müA) : 1
-  - > 30% / 17° ( > 1000 müA) : 2
-  - > 60% / 31° ( > 1500 müA) : 3
+###preperation Datasets
+##Tranformator stations
+#reprojekt TS to EPSG 31287 -> TS repro
+#remove unnesecary columns
+#cluster points with DBSCAN clustering (minimum cluster size 2, max dist 30m)
+#split clustert poits with unclustered poits
+#merge clustered points with python script: cluster points (merges cluster into singel point, new point mean of coordinates of all points in cluster)
+#merge merge unclustered ponts 
+=>Transfomation Station (TS)
+
+##Invekos
+#reduce to centroids IN -> IN centroids
+=> invecos (IN)
+
+##digital elevetion model
+#reduce to 10m raster
+#computing slope
+#categorize to 1,2,3
+1 under 1000 and under 30%
+2 over 1000 and/or over 30% and under 1500 and under 60%
+3 over 1500 and/or over 60%
+
+#vektorize
+#split polygons with more than 10.000 verticies -> faster intersection because of smaller polygons and smaler bounding boxes
+=> difficulty
+
+###intersection and remerging
+#Join attributes by nearest: centroids Inspire with transormator stations 3 nerest
+#python script: points to line(darwas a line feture between the every invekos centroid and the 3 nearest Transformator station)
+#python script: repair fid (generates an identifier field for the invecos plot and the transformator station, with thair coordinates)
+#python script: intersection_ optimised(intersects the lines between invecos and Transformator stations with the difficulties layer)
+#python script: calc_dhm_factor (multiplies each line segment with the factor of the difficulty layer(1,2,3); ads up all linesegemt of the line beween IN und TS; filters the shortest path; reduce to a point layer ar IN)
+#join with the centroids layer of Invecos
+#join with invecos polygons
+=> joined relative distance + next Transfomation station
+
+###calculate cost
+#python script:cost grid connection:(calculates the cost vor the connection of a pv plant with 1 mw output) 0 = errror
+
+
+
