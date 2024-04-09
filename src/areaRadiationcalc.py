@@ -1,7 +1,7 @@
 #!/bin/python
 
 import sys
-sys.path.append('../renSpatial/src')
+sys.path.append('renSpatial/src')
 
 import renspatial as rs
 import geopandas as gpd
@@ -28,6 +28,7 @@ def process_regions(regions, areas):
         regions (geopandas.GeoDataFrame): Regions to process.
         areas (geopandas.GeoDataFrame): Areas to intersect with regions.
     """
+    points = []
     for index, region in regions.iterrows():
         print(f"Processing region {index}/{regions.shape[0]} - - {region['PG']}")
         # Check if polygon A intersects with any polygon in shapefile B
@@ -37,9 +38,10 @@ def process_regions(regions, areas):
         selected_areas = areas[intersects]
         print(f"Number of areas in region: {selected_areas.shape[0]}")
 
+        # Generate random points within the selected areas
         for i2, area in selected_areas.iterrows():
-            points = rs.spatial.random_points(area.geometry, 2, 100, 250)
-        print(points.shape[0])
+            points = rs.spatial.create_random_points(area.geometry, 2, 250)
+            points.to_file('points.gpkg', layer=i2, driver="GPKG", append=True)
 
 
 def main():
