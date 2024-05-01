@@ -1,0 +1,12 @@
+ebod soilquality 
+
+Download maps over vector tile server with python script
+read all Tileson.py
+
+working in QGIS
+reproject to EPSG 31287
+delete all polygons without data (non agricultural areas)
+create new column bofo_id_new as integers
+dissolve to dissolve overlaping polygons by the column bofo_id_new
+multipart to singelpart to split up multipolygons
+fix geometry
