@@ -2,6 +2,7 @@ ebod soilquality
 
 Download maps over vector tile server with python script
 read all Tileson.py
+script is optimised for this server and for the zoom level 14, it could be that other zoom level or other vector tile server don't work with the script provided; the applicable zoom factor is from TileJSON file as are the bounderies witch were converted to tile coordinates with coordinates.py
 
 working in QGIS
 reproject to EPSG 31287
