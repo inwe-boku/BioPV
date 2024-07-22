@@ -65,12 +65,14 @@ def main():
     # open ccca netcdf
 
     nd = xr.open_dataset(
-        "~/Data/CCCA/rsds_SDM_ICHEC-EC-EARTH_rcp45_r1i1p1_KNMI-RACMO22E.nc"
+        "/data/projects/PA3C3/Input/rsds_SDM_ICHEC-EC-EARTH_rcp45_r1i1p1_KNMI-RACMO22E.nc"
     )
 
-    startyears = [1981, 2031]
-    years = 20
+    startyears = [2000]
+    years = 5
     dates365 = rs.base.gendates365(startyears, years)
+
+    print(dates365)
 
     temperature = 25
     altitude = 250
@@ -96,44 +98,40 @@ def main():
             ghid = rsdsvalues * 24
             print("year: {}-{} - rsds: {}".format(year, endyear, rsdsvalues))
 
-            for ghi in rsdsvalues:
-                # Convert daily GHI to hourly DNI and DHI using typical DNI/DHI ratios
-                ghih = rs.irradiance.ghi_daily_to_hourly(
-                    ghid, daterange365, location, timezone, downscale_alg
-                )
-                pd.set_option("display.max_rows", None)
-                # print(ghih.head(365 * 24))
+            ghih = rs.irradiance.ghi_daily_to_hourly(
+                ghid, daterange365, location, timezone, downscale_alg
+            )
+            pd.set_option("display.max_rows", None)
+            print(ghih.head(24*14))
 
-                hdata = rs.irradiance.ghi_to_dni(ghih, model="disc")
-                print(hdata.head(24 * 7))
-                exit(0)
-                pvsys = {
-                    "name": "1kWp",
-                    "type": "single",
-                    "module": "Aleo_Solar_S79y280",
-                    "inverter": "PV_Powered__PVP2000EVR__240V_",
-                    "modules_per_string": 4,  # = 1120Wp; number of modules per row
-                    "strings": 1,  # number of rows
-                    "distance": 10,  # distance in meters between rows
-                    "height": 1,  # slant height (without clearance)
-                    "tilt": [30],  # tilt of modules [0-90]
-                    "azimuth": [180],
-                }
-                # print(pvsys)
-                #
-                mcsys = pvsystem(pvsys, location)
-                # print(mcsys)
-                mcsim = mcsys.run_model(hdata)
-                res = mcsim.results.ac
-                # print(res.head(96))
-                res[res < 0] = 0
-                # print(res.head(96))
-                yearly_sum = res.resample("Y").sum()
-                mean_yearly_sum = yearly_sum.mean()
-                print(mean_yearly_sum)
-                y_mean = mean_yearly_sum / 1000
-                print("yearly mean: {}".format(y_mean))
+            hdata = rs.irradiance.ghi_to_dni(ghih, model="disc")
+            print(hdata.head(24 * 7))
 
+            pvsys = {
+                "name": "1kWp",
+                "type": "single",
+                "module": "Aleo_Solar_S79y280",
+                "inverter": "PV_Powered__PVP2000EVR__240V_",
+                "modules_per_string": 4,  # = 1120Wp; number of modules per row
+                "strings": 1,  # number of rows
+                "distance": 10,  # distance in meters between rows
+                "height": 1,  # slant height (without clearance)
+                "tilt": [30],  # tilt of modules [0-90]
+                "azimuth": [180],
+            }
+
+            mcsys = pvsystem(pvsys, location)
+            # print(mcsys)
+            mcsim = mcsys.run_model(hdata)
+            res = mcsim.results.ac
+            # print(res.head(96))
+            res[res < 0] = 0
+            # print(res.head(96))
+            yearly_sum = res.resample("Y").sum()
+            mean_yearly_sum = yearly_sum.mean()
+            print(mean_yearly_sum)
+            y_mean = mean_yearly_sum / 1000
+            print("yearly mean: {}".format(y_mean))
 
 if __name__ == "__main__":
     main()

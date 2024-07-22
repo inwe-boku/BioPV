@@ -6,7 +6,7 @@ import numpy as np
 import concurrent.futures
 import random
 from shapely.geometry import Polygon, Point
-from scipy.spatial import cKDTree
+
 
 def sample_raster(chunk, rasterfile, colname="elevation"):
     # Open the DEM raster using rasterio
@@ -60,72 +60,72 @@ def process_chunks_parallel(
     return complete_gdf
 
 
-def create_regular_points(polygon, spacing):
+def regular_points(polygon, spacing=100):
     """
-    Create a grid of points within a polygon with a specified spacing.
+    Generate a GeoDataFrame containing a regular grid of points within a specified polygon extent.
 
     Parameters:
-    - polygon: shapely Polygon object representing the polygon to generate points within
-    - spacing: float value indicating the spacing between grid points
+        polygon (shapely.geometry.Polygon): The polygon representing the extent within which to create the grid.
+        spacing (float): The spacing between grid points (default is 100).
 
     Returns:
-    - grid_points: list of Point objects representing the grid points within the polygon
+        geopandas.GeoDataFrame: A GeoDataFrame containing the generated regular grid points.
     """
+    extent_polygon = polygon
 
-    # Get the bounding box (envelope) of the polygon
-    min_x, min_y, max_x, max_y = polygon.bounds
+    # Create grid points within the extent
+    x_coords = np.arange(extent_polygon.bounds[0], extent_polygon.bounds[2], spacing)
+    y_coords = np.arange(extent_polygon.bounds[1], extent_polygon.bounds[3], spacing)
 
-    # Generate x and y coordinates for the grid points
-    x_coords = np.arange(np.ceil(min_x), np.floor(max_x), spacing)
-    y_coords = np.arange(np.ceil(min_y), np.floor(max_y), spacing)
-
-    # Ensure that at least one point is generated within the polygon
     grid_points = []
-    point_found = False
+    for x in x_coords:
+        for y in y_coords:
+            point = Point(x, y)
+            if point.within(extent_polygon):
+                grid_points.append(point)
 
-    while not point_found:
-        for x in x_coords:
-            for y in y_coords:
-                point = Point(x, y)
-                if polygon.contains(point):
-                    grid_points.append(point)
-                    point_found = True
-                    break
-            if point_found:
-                break
+    # Create a GeoDataFrame from the grid points
+    grid_gdf = gpd.GeoDataFrame(grid_points, columns=["geometry"])
 
-        # If no point was found in the initial grid, refine the grid with smaller spacing
-        if not point_found:
-            spacing /= 2
-            x_coords = np.arange(np.ceil(min_x), np.floor(max_x), spacing)
-            y_coords = np.arange(np.ceil(min_y), np.floor(max_y), spacing)
-
-    return grid_points
+    return grid_gdf
 
 
-def create_random_points(polygon, density_per_hectare, min_distance):
-    # Calculate area of the polygon in square meters
-    area_hectares = polygon.area / 10000  # Convert square meters to hectares
-    desired_num_points = int(area_hectares * density_per_hectare)
-    
-    if desired_num_points < 1:
-        desired_num_points = 1
-    
-    # Calculate the appropriate spacing to achieve the desired minimum distance
-    spacing = min_distance / np.sqrt(density_per_hectare)
-    
-    # Generate regular points within the polygon using the calculated spacing
-    regular_points = create_regular_points(polygon, spacing)
-    
-    print(desired_num_points)
-    print(regular_points)
-    # Randomly select the desired number of points from the regular points
-    if len(regular_points) > 0:
-        random_points = random.sample(regular_points, min(desired_num_points, len(regular_points)))
-    else:
-        random_points = []
-    exit(0)
-    return random_points
+def random_points(polygon, num_points, spacing=100, crs="EPSG:3857"):
+    """
+    Generates random points within a polygon while enforcing a minimum spacing between points.
+
+    Parameters:
+    - polygon (shapely.geometry.Polygon): The polygon in which to generate random points.
+    - num_points (int): The number of random points to generate.
+    - spacing (float, optional): The minimum spacing between points (default is 100).
+
+    Returns:
+    - List[shapely.geometry.Point]: A list of random points within the polygon.
+
+    The function generates random points within the specified polygon. It ensures that the
+    generated points are at least 'spacing' units away from each other within the polygon.
+
+    Example:
+    ```python
+    from shapely.geometry import Polygon
+    polygon = Polygon([(0, 0), (0, 100), (100, 100), (100, 0)])
+    random_points = generate_random_points_in_polygon(polygon, 10, 20)
+    ```
+
+    This example generates 10 random points within the polygon with a minimum spacing of 20 units between points.
+    """
+    points = []
+    min_x, min_y, max_x, max_y = polygon.bounds
+    while len(points) < num_points:
+        x = random.uniform(min_x, max_x)
+        y = random.uniform(min_y, max_y)
+        point = Point(x, y)
+        if polygon.contains(point):
+            if all(
+                point.distance(existing_point) >= spacing for existing_point in points
+            ):
+                points.append(point)
+    return gpd.GeoDataFrame(points, columns=["geometry"], crs=crs)
 
 
 def clip_points():
@@ -311,6 +311,39 @@ def sample_values_around_points(grid_gdf, raster_path, window_size):
             else:
                 values.append(None)
         return values
+
+
+def generate_random_points_within_polygons(polygon_layer, points_per_area=0.0001):
+    """
+    Generate random points within polygons in a GeoDataFrame.
+
+    Parameters:
+        polygon_layer (geopandas.GeoDataFrame): GeoDataFrame containing polygons.
+        points_per_area (float): Number of points per unit area (default is 0.0001).
+
+    Returns:
+        geopandas.GeoDataFrame: GeoDataFrame containing generated random points.
+    """
+    random_points = []
+
+    for _, polygon in polygon_layer.iterrows():
+        area = polygon.geometry.area
+        num_points = int(np.ceil(area * points_per_area))
+        points = []
+
+        while len(points) < num_points:
+            point = Point(
+                random.uniform(polygon.geometry.bounds[0], polygon.geometry.bounds[2]),
+                random.uniform(polygon.geometry.bounds[1], polygon.geometry.bounds[3]),
+            )
+
+            if point.within(polygon.geometry):
+                points.append(point)
+
+        random_points.extend(points)
+
+    random_points_gdf = gpd.GeoDataFrame(random_points, columns=["geometry"])
+    return random_points_gdf
 
 
 def calculate_average_roof_pitch(dhm_path, roof_mask_path):
