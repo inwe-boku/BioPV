@@ -1,0 +1,14 @@
+# BioPV Timeseries statistical calculations
+
+## Statistics
+
+- SUM: for each year and month the mean, median, min, max + std.dev. is calculated
+- HOURLY: typical day per month (over all years): mean + std.dev.
+- EXTREMES: daily sums to find consecutive days below a monthly threshold (LITSEARCH)
+
+saving of the data to be defined
+
+## Revenue
+
+- calculation by hourly prices from awattar (min, max, median): https://www.awattar.at/tariffs/hourly
+- calculation by monthly Oemag prices (die haben von Quartal auf Monat umgestellt, mal sehen wie wir das am besten machen)
