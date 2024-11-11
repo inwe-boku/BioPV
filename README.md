@@ -1,12 +1,28 @@
 # BioPV
 Code, Documentation &amp; More for the BioPV Project
 
-# Conda environment
+# PIXI Environment
 
-Using micromamba create with:
+> pixi init
 
-> micromamba create -f environment.yml
+this only creates a config file and a .pixi folder where all the packages go. With
 
-and activate with:
+> pixi add $package
+> pixi run python $script.py
 
-> micromamba activate biopv
+# Workflow
+
+# Investment Costs
+
+DE2024_ISE_Studie_Stromgestehungskosten_Erneuerbare_Energien.pdf
+
+Fraunhofer Costs for Renewables 2024:
+
+PV ground mounted > 1MWp = 700-900 EUR/kW
+
+Category | 1 MWp  | 5 MWp  | 10 MWp |
+-------------------------------------
+low      | 0.7 M€ | 3.5 M€ | 7 M€   |
+high     | 0.9 M€ | 4.5 M€ | 9 M€   |
+-------------------------------------
+
