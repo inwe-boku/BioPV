@@ -43,20 +43,22 @@ This adds the isodist with 3 x proximity
 
 4. Merging distance Map with Invecos polygons (invecos_extract_uw_dis.py)
 
-Maping smales value for each category of transfomer station to polygons ading 3 new atributes to Invecos
+Mapping the smallest value for each category of transfomer station to polygons ading 3 new atributes to the dataset
 
 * Input
 ** filepath INVEKOS / INSPIRE (Austrian Agriculural plots) Polygon shapefile
 ** filepaths to folder with output of script 2.
 
+* Output
+** inspire_schlaege_with_min_values.gpkg
 
-<- output
-- inspire_schlaege_with_min_values.gpkg
+5. Calculate the grid costs from distances (calcualcte_grid_cost.py)
 
-5. Calcualte the Grid cost from distance with Python script (calcualcte_grid_cost.py)
--> input
-- inspire_schlaege_with_min_values.gpkg
-- cost.csv (calcuaton sceem for electrical lines)
-Calculates 3 different solar plats 1 MW, 5 MW and 10 MW for each it calculates 3 new columns optial Voltage, optimale diameter and the costs
--> output
--grid_cost_AT.gpkg
+Calculates 3 different PV systems [1, 5, 10 MW] and 3 new columns are added: optiaml Voltage (kV), optimal diameter (mm) and the costs (€)
+
+* Input
+** inspire_schlaege_with_min_values.gpkg
+** cost.csv (calcuaton sceem for electrical lines)
+
+* Output
+** grid_cost_AT.gpkg
