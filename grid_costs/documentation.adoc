@@ -2,42 +2,54 @@
 
 1. Distance Calculation -  QGIS Model (grid cost.model3)
 
-* Input Layers
+Processing of the data is done for each federal state separately.
+
+* Input
 ** UWsranked (Transfomer stations ranked 1 to 4; none = 4) Point shapefile
 ** Grenzen (Borders of Austian federal states) Polygon shapefile
 ** GIP (Austian Linknetwork of streets) Line shapefile
-Processing data for each federal state
-<- output Layers
-- proxy map (Raster proximity map of distance to road) tif 100m resultion
-- UW rank 4 iso dist (distance to transfomer Staions of rank 4 on linknetwork, interpolation with voronoi polygons, Rasterrized) tif 100m resolution
-- UW rank 3 iso dist (distance to transfomer Staions of rank 3 on linknetwork, interpolation with voronoi polygons, Rasterrized) tif 100m resolution
-- UW rank 2 iso dist (distance to transfomer Staions of rank 2 on linknetwork, interpolation with voronoi polygons, Rasterrized) tif 100m resolution
+
+* Output
+** proxy map (Raster proximity map of distance to road) tif 100m resultion
+** UW rank 4 iso dist (distance to transfomer Staions of rank 4 on linknetwork, interpolation with voronoi polygons, Rasterrized) tif 100m resolution
+** UW rank 3 iso dist (distance to transfomer Staions of rank 3 on linknetwork, interpolation with voronoi polygons, Rasterrized) tif 100m resolution
+** UW rank 2 iso dist (distance to transfomer Staions of rank 2 on linknetwork, interpolation with voronoi polygons, Rasterrized) tif 100m resolution
 
 2.Merging all raster data with Python script (merge_raster_data.py)
--> input
-- filepath of folders with one folder for each federal State
-- filepath to Grenzen (Borders of Austian federal states) Polygon shapefile
-Processing all Federal states as on: Output for all of Austria
-<- Ouput Layers
-- Austria_final_cliped_proxy.tif
-- Austria_final_cliped_UW_2.tif
-- Austria_final_cliped_UW_3.tif
-- Austria_final_cliped_UW_4.tif
 
-3. Merging Proxymity map with Transformer Staion Distance with Python script (isodist) (merge_isodist_and_proxy.py)
--> input
-- filepaths to folder with output of script 2.
-Ading isodist with 3 x proximity
-<- output Layers
-- Austria_merged_UW_2.tif
-- Austria_merged_UW_3.tif
-- Austria_merged_UW_4.tif
+The output per federal states are combined for all of Austria
 
-4. Merging distance Map with Invecos polygons with Python script  (Invecos_extract_uw_dis.py)
--> input
-- filepath Invecos (Austrian Agriculural plots) Polygon shapefile
-- filepaths to folder with output of script 2.
+* Input
+** filepath of folders with one folder for each federal State
+** filepath to Grenzen (Borders of Austian federal states) Polygon shapefile
+
+* Ouput
+** Austria_final_cliped_proxy.tif
+** Austria_final_cliped_UW_2.tif
+** Austria_final_cliped_UW_3.tif
+** Austria_final_cliped_UW_4.tif
+
+3. Merging of the proximity map with substation distances (merge_isodist_and_proxy.py)
+
+This adds the isodist with 3 x proximity
+
+* Input
+**  filepaths to folder with output of script (merge_raster_data).
+
+* Output
+** Austria_merged_UW_2.tif
+** Austria_merged_UW_3.tif
+** Austria_merged_UW_4.tif
+
+4. Merging distance Map with Invecos polygons (invecos_extract_uw_dis.py)
+
 Maping smales value for each category of transfomer station to polygons ading 3 new atributes to Invecos
+
+* Input
+** filepath INVEKOS / INSPIRE (Austrian Agriculural plots) Polygon shapefile
+** filepaths to folder with output of script 2.
+
+
 <- output
 - inspire_schlaege_with_min_values.gpkg
 
