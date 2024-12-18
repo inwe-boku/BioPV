@@ -1,4 +1,4 @@
-Dokumantaion of grid cost calculation
+# Grid cost documentation and workflow
 
 1. Calcualtion of Distances with QGIS Modeler (grid cost.model3)
 -> input Layers
@@ -25,7 +25,7 @@ Processing all Federal states as on: Output for all of Austria
 
 3. Merging Proxymity map with Transformer Staion Distance with Python script (isodist) (merge_isodist_and_proxy.py)
 -> input
-- filepaths to folder with output of script 2. 
+- filepaths to folder with output of script 2.
 Ading isodist with 3 x proximity
 <- output Layers
 - Austria_merged_UW_2.tif
@@ -47,8 +47,3 @@ Maping smales value for each category of transfomer station to polygons ading 3 
 Calculates 3 different solar plats 1 MW, 5 MW and 10 MW for each it calculates 3 new columns optial Voltage, optimale diameter and the costs
 -> output
 -grid_cost_AT.gpkg
-
-
-
-
-
