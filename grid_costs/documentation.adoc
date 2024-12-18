@@ -1,10 +1,11 @@
 # Grid cost documentation and workflow
 
-1. Calcualtion of Distances with QGIS Modeler (grid cost.model3)
--> input Layers
-- UWsranked (Transfomer stations ranked 1 to 4; none = 4) Point shapefile
-- Grenzen (Borders of Austian federal states) Polygon shapefile
-- GIP (Austian Linknetwork of streets) Line shapefile
+1. Distance Calculation -  QGIS Model (grid cost.model3)
+
+* Input Layers
+** UWsranked (Transfomer stations ranked 1 to 4; none = 4) Point shapefile
+** Grenzen (Borders of Austian federal states) Polygon shapefile
+** GIP (Austian Linknetwork of streets) Line shapefile
 Processing data for each federal state
 <- output Layers
 - proxy map (Raster proximity map of distance to road) tif 100m resultion
