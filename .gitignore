@@ -7,6 +7,8 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+data/
+!grid_costs/data/
 .Python
 build/
 develop-eggs/
